@@ -16,9 +16,10 @@ Route::get('/', function () {
 });
 Route::prefix('admin')->group(function () {
     Auth::routes();
-
+    Route::get('/add-new-package', 'HomeController@new_package')->name('new-package');
+    Route::post('/add-new-package', 'HomeController@create_new_package')->name('create_new_package');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
-Route::get('/home', 'HomeController@index')->name('home');
 
 //user
 Route::get('/', 'PagesController@index');

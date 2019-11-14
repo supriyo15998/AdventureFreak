@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Package;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +23,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('admin.home');
+    }
+    public function new_package()
+    {
+        return view('admin.newPackage');
+    }
+    public function create_new_package(Request $request)
+    {
+        $validatedData = $request->validate([
+            'pack_name' => 'required',
+            'amount' => 'required',
+            'facilities' => 'required',
+            'depart-date' => 'required',
+            'arrival-date' => 'required',
+            'days' => 'required',
+            'nights' => 'required'
+        ]);
+        Package::create($validatedData);
+        return redirect('/home');
     }
 }
