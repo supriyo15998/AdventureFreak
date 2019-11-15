@@ -57,38 +57,40 @@
       <div class="row">
         <div class="col-md-6">
           <div class="card card-primary">
+
+            @if($errors->any())
+            <div class="alert alert-danger">
+            <ul> 
+              @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+            </div>
+            @endif
             
             <form method="POST" action="{{route('create_new_package')}}">
               @csrf
               <div class="card-body">
                 <div class="form-group">
                   <label for="inputName">Package Name</label>
-                  <input type="text" name="pack_name" id="inputName" class="form-control">
+                  <input type="text" name="package_name" id="inputName" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="amount-per-head">Amount per head</label>
-                  <input id="amount-per-head" name="amount" type="number" class="form-control">
+                  <input id="amount-per-head" name="amount-per-head" type="number" class="form-control">
                 </div>
-                <!-- <div class="form-group">
-                  <label for="inputStatus">Status</label>
-                  <select class="form-control custom-select">
-                    <option selected disabled>Select one</option>
-                    <option>On Hold</option>
-                    <option>Canceled</option>
-                    <option>Success</option>
-                  </select>
-                </div> -->
+               
                 <div class="form-group">
                   <label for="facilities">Facilities (comma separated)</label>
                   <input type="text" name="facilities" id="facilities" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="t-date-depart">Tentative Date Departure</label>
-                  <input type="date" name="depart-date" id="t-date-depart" class="form-control">
+                  <input type="date" name="depart_date" id="t-date-depart" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="t-date-arrival">Tentative Date Arrival</label>
-                  <input type="date" name="arrival-date" id="t-date-arrival" class="form-control">
+                  <input type="date" name="arrival_date" id="t-date-arrival" class="form-control">
                 </div>
                 <div class="form-group">
                   <input type="number" name="days"><b>Days</b> <input type="number" name="nights"><b>Nights</b>

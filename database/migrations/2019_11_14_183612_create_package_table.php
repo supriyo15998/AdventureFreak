@@ -8,21 +8,22 @@ class CreatePackageTable extends Migration
 {
     /**
      * Run the migrations.
+     //wait... fix kiya abhi..
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('package', function (Blueprint $table) {
+        Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('package_name');
-            $table->bigInteger('amout_per_head');
+            $table->bigInteger('amount-per-head');
             $table->string('facilities');
-            $table->string('dep_date');
-            $table->string('arr_date');
+            $table->string('depart_date');
+            $table->string('arrival_date');
             $table->bigInteger('days');
             $table->bigInteger('nights');
-            $table->timestamps();
+            $table->timestamps();//yaha v naam same hona chaohye?
         });
     }
 

@@ -32,15 +32,16 @@ class HomeController extends Controller
     public function create_new_package(Request $request)
     {
         $validatedData = $request->validate([
-            'pack_name' => 'required',
-            'amount' => 'required',
+            'package_name' => 'required',
+            'amount-per-head' => 'required',
             'facilities' => 'required',
-            'depart-date' => 'required',
-            'arrival-date' => 'required',
+            'depart_date' => 'required',
+            'arrival_date' => 'required',
             'days' => 'required',
             'nights' => 'required'
         ]);
+        //dd($validatedData);
         Package::create($validatedData);
-        return redirect('/home');
+        return redirect('/admin/home');
     }
 }
