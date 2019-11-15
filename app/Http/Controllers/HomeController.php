@@ -29,6 +29,11 @@ class HomeController extends Controller
     {
         return view('admin.newPackage');
     }
+    public function view_packages()
+    {
+        $packages = Package::all();
+        return view('admin.viewPackage')->withPackages($packages);
+    }
     public function create_new_package(Request $request)
     {
         $validatedData = $request->validate([
@@ -42,6 +47,6 @@ class HomeController extends Controller
         ]);
         //dd($validatedData);
         Package::create($validatedData);
-        return redirect('/admin/home');
+        return redirect('/admin/home')->with('message', 'Package Added Successfully');
     }
 }

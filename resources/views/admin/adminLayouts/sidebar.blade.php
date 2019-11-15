@@ -42,6 +42,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{ route('view_packages') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View all Packages</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Images</p>
