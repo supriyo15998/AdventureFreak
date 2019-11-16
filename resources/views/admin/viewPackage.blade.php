@@ -204,7 +204,6 @@
               <tbody>
 
                 @foreach($packages as $package)
-                  <p>{{ $package }}</p>
                   <tr>
                       <td>
                           {{ $package->id }}
@@ -219,16 +218,16 @@
                           </small>
                       </td>
                       <td>
-                          <p>oo</p>
+                          <p>{{ $package->amount_per_head }}</p>
                       </td>
                       <td class="project_progress">
-                          <p>hello</p>
+                          <p>{{ $package->facilities }}</p>
                       </td>
                       <td class="project-state">
-                          <p>hello</p>
+                          <p>{{ $package->depart_date }}</p>
                       </td>
                       <td>
-                        <p>hello</p>
+                        <p>{{ $package->arrival_date }}</p>
                       </td>
                       <td class="project-actions text-right">
                           

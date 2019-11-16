@@ -77,7 +77,7 @@
                 </div>
                 <div class="form-group">
                   <label for="amount-per-head">Amount per head</label>
-                  <input id="amount-per-head" name="amount-per-head" type="number" class="form-control">
+                  <input id="amount-per-head" name="amount_per_head" type="number" class="form-control">
                 </div>
                
                 <div class="form-group">

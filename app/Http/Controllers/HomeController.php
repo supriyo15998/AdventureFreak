@@ -38,7 +38,7 @@ class HomeController extends Controller
     {
         $validatedData = $request->validate([
             'package_name' => 'required',
-            'amount-per-head' => 'required',
+            'amount_per_head' => 'required',
             'facilities' => 'required',
             'depart_date' => 'required',
             'arrival_date' => 'required',
