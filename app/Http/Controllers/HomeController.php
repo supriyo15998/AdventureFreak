@@ -49,4 +49,26 @@ class HomeController extends Controller
         Package::create($validatedData);
         return redirect('/admin/home')->with('message', 'Package Added Successfully');
     }
+    public function edit_package($id)
+    {
+        $package = Package::findOrFail($id);
+        return view('admin.editPackage')->withPackage($package);
+    }
+    public function edit_final(Request $request)
+    {
+        $validatedData = $request->validate([
+            'package_name' => 'required',
+            'amount_per_head' => 'required',
+            'facilities' => 'required',
+            'depart_date' => 'required',
+            'arrival_date' => 'required',
+            'days' => 'required',
+            'nights' => 'required'
+        ]);
+
+        $package = Package::findOrFail($request->package_id);
+
+        $package->update($validatedData);
+        return redirect('/admin/home')->with('message', 'Package Updated Successfully');
+    }
 }
