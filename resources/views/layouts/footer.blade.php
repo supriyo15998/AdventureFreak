@@ -7,7 +7,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-footer-widget mb-80">
                         <!-- Footer Logo -->
-                        <a href="#" class="footer-logo"><img src="img/core-img/logo2.png" alt=""></a>
+                        <a href="#" class="footer-logo"><img src="img/core-img/logo2new.png" alt=""></a>
 
                         <h4>(+91) 79803 28015</h4>
                         <span>adventurefreakindia@gmail.com</span>
@@ -16,24 +16,7 @@
                 </div>
 
                 <!-- Single Footer Widget Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-footer-widget mb-80">
-                        <!-- Widget Title -->
-                        <h5 class="widget-title">Our Blog</h5>
-
-                        <!-- Single Blog Area -->
-                        <div class="latest-blog-area">
-                            <a href="#" class="post-title">Freelance Design Tricks How</a>
-                            <span class="post-date"><i class="fa fa-clock-o" aria-hidden="true"></i> Jan 02, 2019</span>
-                        </div>
-
-                        <!-- Single Blog Area -->
-                        <div class="latest-blog-area">
-                            <a href="#" class="post-title">Free Advertising For Your Online</a>
-                            <span class="post-date"><i class="fa fa-clock-o" aria-hidden="true"></i> Jan 02, 2019</span>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <!-- Single Footer Widget Area -->
                 <div class="col-12 col-sm-4 col-lg-2">

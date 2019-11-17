@@ -10,7 +10,7 @@
     <!-- Title -->
     <title>{{ $title }}</title>
     <!-- Favicon -->
-    <link rel="icon" href="./img/core-img/favicon.png">
+    <link rel="icon" href="./img/core-img/favicon2.png">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -250,26 +250,7 @@
     <!-- Call To Action Area End -->
 
     <!-- Partner Area Start -->
-    <div class="partner-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="partner-logo-content d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Single Partner Logo -->
-                        <a href="#" class="partner-logo"><img src="img/core-img/p1.png" alt=""></a>
-                        <!-- Single Partner Logo -->
-                        <a href="#" class="partner-logo"><img src="img/core-img/p2.png" alt=""></a>
-                        <!-- Single Partner Logo -->
-                        <a href="#" class="partner-logo"><img src="img/core-img/p3.png" alt=""></a>
-                        <!-- Single Partner Logo -->
-                        <a href="#" class="partner-logo"><img src="img/core-img/p4.png" alt=""></a>
-                        <!-- Single Partner Logo -->
-                        <a href="#" class="partner-logo"><img src="img/core-img/p5.png" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <br>
     <!-- Partner Area End -->
 
     <!-- Footer Area Start -->
