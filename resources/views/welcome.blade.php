@@ -40,9 +40,9 @@
                             <!-- Welcome Text -->
                             <div class="col-12">
                                 <div class="welcome-text text-center">
-                                    <h6 data-animation="fadeInLeft" data-delay="200ms">Hotel &amp; Resort</h6>
-                                    <h2 data-animation="fadeInLeft" data-delay="500ms">Welcome To Roberto</h2>
-                                    <a href="#" class="btn roberto-btn btn-2" data-animation="fadeInLeft" data-delay="800ms">Discover Now</a>
+                                    <h6 data-animation="fadeInLeft" data-delay="200ms">Tour &amp; Travels</h6>
+                                    <h2 data-animation="fadeInLeft" data-delay="500ms">Welcome To AdventureFreak</h2>
+                                    <a href="{{ route('packages') }}" class="btn roberto-btn btn-2" data-animation="fadeInLeft" data-delay="800ms">Show Packages</a>
                                 </div>
                             </div>
                         </div>
@@ -59,9 +59,9 @@
                             <!-- Welcome Text -->
                             <div class="col-12">
                                 <div class="welcome-text text-center">
-                                    <h6 data-animation="fadeInUp" data-delay="200ms">Hotel &amp; Resort</h6>
-                                    <h2 data-animation="fadeInUp" data-delay="500ms">Welcome To Roberto</h2>
-                                    <a href="#" class="btn roberto-btn btn-2" data-animation="fadeInUp" data-delay="800ms">Discover Now</a>
+                                    <h6 data-animation="fadeInUp" data-delay="200ms">Tour &amp; Travels</h6>
+                                    <h2 data-animation="fadeInUp" data-delay="500ms">Welcome To AdventureFreak</h2>
+                                    <a href="{{ route('contact') }}" class="btn roberto-btn btn-2" data-animation="fadeInUp" data-delay="800ms">Contact Us</a>
                                 </div>
                             </div>
                         </div>

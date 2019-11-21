@@ -27,5 +27,5 @@ Route::prefix('admin')->group(function () {
 //user
 Route::get('/', 'PagesController@index')->name('index');
 Route::get('/about-us', 'PagesController@about');
-Route::get('/packages', 'PagesController@package');
-Route::get('/contact-us', 'PagesController@contact');
+Route::get('/packages', 'PagesController@package')->name('packages');
+Route::get('/contact-us', 'PagesController@contact')->name('contact');
