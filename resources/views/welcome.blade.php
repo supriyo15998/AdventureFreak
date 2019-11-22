@@ -32,7 +32,7 @@
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/16.jpg);" data-img-url="img/bg-img/16.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/16a.jpg);" data-img-url="img/bg-img/16.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/17.jpg);" data-img-url="img/bg-img/17.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/17b.jpg);" data-img-url="img/bg-img/17.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -62,25 +62,6 @@
                                     <h6 data-animation="fadeInUp" data-delay="200ms">Tour &amp; Travels</h6>
                                     <h2 data-animation="fadeInUp" data-delay="500ms">Welcome To AdventureFreak</h2>
                                     <a href="{{ route('contact') }}" class="btn roberto-btn btn-2" data-animation="fadeInUp" data-delay="800ms">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/18.jpg);" data-img-url="img/bg-img/18.jpg">
-                <!-- Welcome Content -->
-                <div class="welcome-content h-100">
-                    <div class="container h-100">
-                        <div class="row h-100 align-items-center">
-                            <!-- Welcome Text -->
-                            <div class="col-12">
-                                <div class="welcome-text text-center">
-                                    <h6 data-animation="fadeInDown" data-delay="200ms">Hotel &amp; Resort</h6>
-                                    <h2 data-animation="fadeInDown" data-delay="500ms">Welcome To Roberto</h2>
-                                    <a href="#" class="btn roberto-btn btn-2" data-animation="fadeInDown" data-delay="800ms">Discover Now</a>
                                 </div>
                             </div>
                         </div>
@@ -159,8 +140,8 @@
                     </div>
                     <div class="about-us-content mb-100">
                         <h5 class="wow fadeInUp" data-wow-delay="300ms">With over 340 hotels worldwide, NH Hotel Group offers a wide variety of hotels catering for a perfect stay no matter where your destination.</h5>
-                        <p class="wow fadeInUp" data-wow-delay="400ms">Manager: <span>Michen Taylor</span></p>
-                        <img src="img/core-img/signature.png" alt="" class="wow fadeInUp" data-wow-delay="500ms">
+                        <p class="wow fadeInUp" data-wow-delay="400ms">Founder: <span>Supriyo Das</span></p>
+                        <img src="img/core-img/signature1.png" alt="" class="wow fadeInUp" data-wow-delay="500ms">
                     </div>
                 </div>
 
@@ -169,10 +150,10 @@
                         <div class="row no-gutters">
                             <div class="col-6">
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/13.jpg" alt="">
+                                    <img src="img/bg-img/13a.jpg" alt="">
                                 </div>
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/14.jpg" alt="">
+                                    <img src="img/bg-img/14a.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-6">
