@@ -17,7 +17,7 @@
                     <div class="top-header-content">
                         <!-- Top Social Area -->
                         <div class="top-social-area ml-auto">
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/travelisourtherapy/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -62,7 +62,7 @@
 
                             <!-- Book Now -->
                             <div class="book-now-btn ml-3 ml-lg-5">
-                                <a href="#">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                <a href="{{ route('packages') }}">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <!-- Nav End -->
