@@ -1,3 +1,4 @@
+<br>
 <footer class="footer-area section-padding-80-0">
     <!-- Main Footer Area -->
     <div class="main-footer-area">
@@ -35,19 +36,7 @@
                 </div>
 
                 <!-- Single Footer Widget Area -->
-                <div class="col-12 col-sm-8 col-lg-4">
-                    <div class="single-footer-widget mb-80">
-                        <!-- Widget Title -->
-                        <h5 class="widget-title">Subscribe Newsletter</h5>
-                        <span>Subscribe our newsletter gor get notification about new updates.</span>
-
-                        <!-- Newsletter Form -->
-                        <form action="index.html" class="nl-form">
-                            <input type="email" class="form-control" placeholder="Enter your email...">
-                            <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

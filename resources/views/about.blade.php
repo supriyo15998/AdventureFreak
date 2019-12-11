@@ -29,7 +29,7 @@
     <!-- Header Area End -->
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16a.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -75,7 +75,7 @@
     <!-- About Us Area End -->
 
     <!-- Video Area Start -->
-    <div class="roberto--video--area bg-img bg-overlay jarallax section-padding-0-100" style="background-image: url(img/bg-img/20.jpg);">
+    <div class="roberto--video--area bg-img bg-overlay jarallax section-padding-0-100" style="background-image: url(img/bg-img/20a.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-6">
@@ -94,49 +94,7 @@
     <!-- Video Area End -->
 
     <!-- Service Area Start -->
-    <section class="roberto-service-area section-padding-100-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Section Heading -->
-                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
-                        <h6>Ultimate Solutions</h6>
-                        <h2>Our Hotel &amp; Room</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-area mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <img src="img/bg-img/21.jpg" alt="">
-                        <div class="service-title d-flex align-items-center justify-content-center">
-                            <h5>Restaurant &amp; Bar</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-area mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="img/bg-img/22.jpg" alt="">
-                        <div class="service-title d-flex align-items-center justify-content-center">
-                            <h5>Spa &amp; Fitness</h5>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-area mb-100 wow fadeInUp" data-wow-delay="700ms">
-                        <img src="img/bg-img/23.jpg" alt="">
-                        <div class="service-title d-flex align-items-center justify-content-center">
-                            <h5>Pool &amp; Party</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <br>
     <!-- Service Area End -->
 
     <!-- Call To Action Area Start -->
