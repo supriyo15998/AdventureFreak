@@ -34,13 +34,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">Our Room</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Room</li>
-                            </ol>
-                        </nav>
+                        <h2 class="page-title">Our Packages</h2>
                     </div>
                 </div>
             </div>
@@ -69,7 +63,7 @@
                                 <h6>Bed: <span>King beds</span></h6>
                                 <h6>Services: <span>Wifi, television ...</span></h6>
                             </div>
-                            <a href="#" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <a href="#" class="btn view-detail-btn">Enquiry<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
 
@@ -89,79 +83,19 @@
                                 <h6>Bed: <span>King beds</span></h6>
                                 <h6>Services: <span>Wifi, television ...</span></h6>
                             </div>
-                            <a href="#" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/45.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Premium King Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
-                            </div>
-                            <a href="#" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="700ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/46.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Room Vip King</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
-                            </div>
-                            <a href="#" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Single Room Area -->
-                    <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="900ms">
-                        <!-- Room Thumbnail -->
-                        <div class="room-thumbnail">
-                            <img src="img/bg-img/47.jpg" alt="">
-                        </div>
-                        <!-- Room Content -->
-                        <div class="room-content">
-                            <h2>Royal Room</h2>
-                            <h4>400$ <span>/ Day</span></h4>
-                            <div class="room-feature">
-                                <h6>Size: <span>30 ft</span></h6>
-                                <h6>Capacity: <span>Max persion 5</span></h6>
-                                <h6>Bed: <span>King beds</span></h6>
-                                <h6>Services: <span>Wifi, television ...</span></h6>
-                            </div>
-                            <a href="#" class="btn view-detail-btn">View Details <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            <a href="#" class="btn view-detail-btn">Enquiry <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
 
                     <!-- Pagination -->
-                    <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="1000ms">
+                    <!-- <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="1000ms">
                         <ul class="pagination">
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">Next <i class="fa fa-angle-right"></i></a></li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
 
                 

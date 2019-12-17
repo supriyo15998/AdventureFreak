@@ -1,34 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title -->
     <title>{{ $title }}</title>
-    <!-- Favicon -->
     <link rel="icon" href="./img/core-img/favicon2.png">
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
     </div>
-    <!-- /Preloader -->
-
-    <!-- Header Area Start -->
     @include('layouts.nav')
-    <!-- Header Area End -->
-
-    <!-- Breadcrumb Area Start -->
     <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16a.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -60,7 +46,7 @@
                 <div class="col-12 col-lg-6">
                     <!-- Section Heading -->
                     <div class="section-heading wow fadeInUp" data-wow-delay="300ms">
-                        <h6>Testimonials</h6>
+                        <h6>Our Motto</h6>
                         <h2>20 Years Of Experience</h2>
                     </div>
                     <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms">
