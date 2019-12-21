@@ -19,6 +19,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/add-new-package', 'HomeController@new_package')->name('new-package');
     Route::post('/add-new-package', 'HomeController@create_new_package')->name('create_new_package');
     Route::get('/view-packages', 'HomeController@view_packages')->name('view_packages');
+    Route::get('/generate-invoice', 'HomeController@generateInvoice')->name('generate-invoice');
+    Route::get('/view-invoice', 'HomeController@viewInvoice')->name('view-invoice');
     Route::get('/edit-package/{id}', 'HomeController@edit_package')->name('edit_package');
     Route::put('/edit-package/{id}', 'HomeController@edit_final')->name('edit_final');
     Route::get('/home', 'HomeController@index')->name('home');

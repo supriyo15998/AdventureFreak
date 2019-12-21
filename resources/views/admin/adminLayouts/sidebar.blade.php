@@ -48,6 +48,18 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{ route('generate-invoice') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Generate Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('view-invoice') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Invoices</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Images</p>
