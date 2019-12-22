@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<div class="logo" style="float: right;">
-			<img src="{{asset('img/core-img/logo.jpeg')}}">
+			<img src="{{asset('img/core-img/logojpgfinal.jpg')}}">
 		</div>
 		<div class="col-md-6">
 			<h2 style="font-family: 'Merriweather', serif; font-weight: bold; margin-top: 2%">Adventure Freak</h2>
