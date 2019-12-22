@@ -50,6 +50,34 @@
                 </ul>
               </div>
             @endif
+
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="package">Package Name</label>
+                  <select id="packageid" class="form-control">
+                    <option selected="">Select package</option>
+                    @foreach($packages as $package)
+                      <option value="{{ $package->id }}" price="{{ $package->amount_per_head }}" >{{ $package->package_name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" id="packagequantity" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="number" id="packageprice" readonly="readonly" class="form-control">
+                </div>
+                <div class="form-group">
+                  <a href="#" class="btn btn-success add-package">Add Package</a>
+                </div>
+              </div>
+            </form>
+
+            <!-- Form To Post -->
+
             <form method="POST" action="{{route('create-invoice')}}">
               @csrf
               <div class="card-body">
@@ -70,21 +98,21 @@
                   <input type="text" name="phone" id="phone" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="package">Package Name</label>
-                  <select name="package_id" class="form-control">
-                    <option selected="">Select package</option>
-                    @foreach($packages as $package)
-                      <option value="{{ $package->id }}">{{ $package->package_name }}</option>
-                    @endforeach
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="quantity">Quantity</label>
-                  <input type="number" name="quantity" id="quantity" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="number" name="price" id="price" class="form-control">
+                  <label>Selected Packages:</label>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Package ID</th>
+                        <th>Package Name</th>
+                        <th>Package Quantity</th>
+                        <th>Package Price</th>
+                      </tr>
+                    </thead>
+                    <tbody id="packages-table">
+                    </tbody>
+                  </table>
+                  <a href="#" class="btn btn-danger delete-selected">Delete Selected</a>
                 </div>
                 <div class="form-group">
                   <label for="discount">Discount (in %)</label>
@@ -116,5 +144,37 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../../dist/js/adminlte.min.js"></script>
 <script src="../../dist/js/demo.js"></script>
+
+<script>
+
+  $(document).ready(function() {
+
+    $(".add-package").click(function() {
+      var packageId = $("#packageid").val();
+      var packageName = $("#packageid :selected").text();
+      var packageQuantity = $("#packagequantity").val();
+      var packagePrice = $("#packageprice").val();
+
+      var markup = "<tr><td><input type='checkbox' name='record'></td><td><input type='hidden' value='" + packageId + "' name='package_id[]'>" + packageId + "</input></td> <td>" + packageName + "</td> <td><input type='hidden' value='" + packageQuantity + "' name='package_quantity[]'>" + packageQuantity + "</input></td> <td>" + packagePrice + "</td>";
+
+      $("#packages-table").append(markup);
+    });
+
+    $(".delete-selected").click(function() {
+      $("#packages-table").find('input[name="record"]').each(function() {
+        if($(this).is(":checked")) {
+          $(this).parents("tr").remove();
+        }
+      });
+    });
+
+    $("#packageid").on("change", function() {
+      $("#packageprice").val($(this).find("option:selected").attr("price"));
+    });
+
+  });
+
+</script>
+
 </body>
 </html>

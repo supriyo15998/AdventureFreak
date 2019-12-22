@@ -82,19 +82,28 @@ class HomeController extends Controller
     }
     public function createInvoice(Request $request)
     {
-        $validatedData = $request->validate([
+        $validatedData = (object) $request->validate([
             'date' => 'required|date',
             'billingName' => 'required',
             'address' => 'required',
             'phone' => 'required|max:10|min:10',
             'package_id' => 'required',
-            'quantity' => 'required|min:1',
-            'price' => 'required',
+            'package_quantity' => 'required|min:1',
+            //'price' => 'required',
             'discount' => 'required',
             'gst' => 'required',
             'rec_amt' => 'required'
         ]);
-        //dd($validatedData);
-        return view('admin.invoice.invoice')->withValidatedData($validatedData);
+
+        $totalAmount = 0;
+
+        foreach ($request->package_id as $key => $package_id) {
+            $package = Package::findOrFail($package_id); 
+            $totalAmount += $package->amount_per_head * $request->package_quantity[$key];  
+        }
+
+        //dd($totalAmount);
+        //dd($validatedData['billingName']); //dafq syntax change/?
+        return view('admin.invoice.invoice')->withValidatedData($validatedData)->withTotalAmount($totalAmount);
     }
 }
