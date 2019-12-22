@@ -80,4 +80,21 @@ class HomeController extends Controller
     {
         return view('admin.showInvoice');
     }
+    public function createInvoice(Request $request)
+    {
+        $validatedData = $request->validate([
+            'date' => 'required|date',
+            'billingName' => 'required',
+            'address' => 'required',
+            'phone' => 'required|max:10|min:10',
+            'package_id' => 'required',
+            'quantity' => 'required|min:1',
+            'price' => 'required',
+            'discount' => 'required',
+            'gst' => 'required',
+            'rec_amt' => 'required'
+        ]);
+        //dd($validatedData);
+        return view('admin.invoice.invoice')->withValidatedData($validatedData);
+    }
 }
