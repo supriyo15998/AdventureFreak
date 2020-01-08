@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Package;
+//use NumberFormatter; // kaha hai yeh?pata nai.. maine aise hi use kar liya stackoverflw me mila link 
 class HomeController extends Controller
 {
     /**
@@ -96,14 +97,19 @@ class HomeController extends Controller
         ]);
 
         $totalAmount = 0;
+        $packages = array();
 
         foreach ($request->package_id as $key => $package_id) {
             $package = Package::findOrFail($package_id); 
-            $totalAmount += $package->amount_per_head * $request->package_quantity[$key];  
+            $totalAmount += $package->amount_per_head * $request->package_quantity[$key];
+            array_push($packages, $package);  
         }
-
-        //dd($totalAmount);
-        //dd($validatedData['billingName']); //dafq syntax change/?
-        return view('admin.invoice.invoice')->withValidatedData($validatedData)->withTotalAmount($totalAmount);
+        //dd($validatedData);
+        //dd($package);
+        $finalAmount = ($totalAmount-($totalAmount*(($validatedData->discount)/100)))+(2*(round((($totalAmount-($totalAmount*(($validatedData->discount)/100)))*(($validatedData->gst)/2))/100,2)));
+        $finalAmount = round($finalAmount);
+        $formattedText = new \NumberFormatter("en", \NumberFormatter::SPELLOUT);
+        $text = $formattedText->format($finalAmount);
+        return view('admin.invoice.invoice')->withValidatedData($validatedData)->withTotalAmount($totalAmount)->withPackages($packages)->withFinalAmount($finalAmount)->withText($text);
     }
 }
