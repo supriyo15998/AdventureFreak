@@ -72,6 +72,11 @@ class HomeController extends Controller
         $package->update($validatedData);
         return redirect('/admin/home')->with('message', 'Package Updated Successfully');
     }
+    public function destroy($id)
+    {
+        Package::findOrFail($id)->delete();
+        return redirect('/admin/home')->with('message', 'Package Deleted Successfully');
+    }
     public function generateInvoice()
     {
         $packages = Package::all();   

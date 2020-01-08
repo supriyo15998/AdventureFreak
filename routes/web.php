@@ -24,6 +24,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/view-invoice', 'HomeController@viewInvoice')->name('view-invoice');
     Route::get('/edit-package/{id}', 'HomeController@edit_package')->name('edit_package');
     Route::put('/edit-package/{id}', 'HomeController@edit_final')->name('edit_final');
+    Route::delete('/delete-package/{id}', 'HomeController@destroy')->name('delete_package');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
