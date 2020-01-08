@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $pcount = Package::count();
+        return view('admin.home')->withPcount($pcount);
     }
     public function new_package()
     {

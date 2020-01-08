@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Package;
 class PagesController extends Controller
 {
     public function index() {
@@ -16,7 +16,9 @@ class PagesController extends Controller
     }
     public function package() {
         $title = 'Adventure-Freak | Packages';
-        return view('packages', ['title'=>$title]);
+        $packages = Package::all();
+        //dd($packages);
+        return view('packages')->withTitle($title)->withPackages($packages);
     }
     public function contact() {
         $title = 'Adventure-Freak | Contact Us';
