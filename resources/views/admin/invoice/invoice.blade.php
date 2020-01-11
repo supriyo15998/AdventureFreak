@@ -25,15 +25,15 @@
 		<h2 style="text-align: center; color: red;font-family: 'Merriweather', serif; font-weight: bold;">TAX INVOICE</h2>
 		<div class="row" style="margin-left: 15%">
 			<div class="col-md-4">
-				<p style="font-weight: bold;">Bill To: {{ $validatedData->billingName }}</p>
-				<p>{{ $validatedData->address }}</p>
-				<p>Contact No: {{ $validatedData->phone }}</p>
+				<p style="font-weight: bold;">Bill To: {{ $data->validatedData->billingName }}</p>
+				<p>{{ $data->validatedData->address }}</p>
+				<p>Contact No: {{ $data->validatedData->phone }}</p>
 			</div>
 			<div class="col-md-4">
 			</div>
 			<div class="col-md-4">
 				<p style="font-weight: bold;">Invoice No:</p>
-				<p style="font-weight: bold;">Date: {{ $validatedData->date }}</p>
+				<p style="font-weight: bold;">Date: {{ $data->validatedData->date }}</p>
 			</div>
 		</div>		
 		<table cellpadding="10" align="center">
@@ -46,14 +46,14 @@
 				<th>Amount</th>
 			</thead>
 			<tbody>
-				@foreach($packages as $key => $package)
+				@foreach($data->packages as $key => $package)
 					<tr style="text-align: right;">
 						<td>{{ $key+1 }}</td>
 						<td>{{ $package->package_name }}</td>
 						<td>{{ $package->facilities }}</td>
-						<td>{{ $validatedData->package_quantity[$key] }}</td>
+						<td>{{ $data->validatedData->package_quantity[$key] }}</td>
 						<td>₹ {{ number_format($package->amount_per_head) }}</td>
-						<td>₹ {{ number_format($validatedData->package_quantity[$key] * $package->amount_per_head) }}</td>
+						<td>₹ {{ number_format($data->validatedData->package_quantity[$key] * $package->amount_per_head) }}</td>
 					</tr>
 				@endforeach
 				<tr>
@@ -62,41 +62,41 @@
 					<td></td>
 					<td style="font-weight: bold;">Sub Total :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ number_format($totalAmount) }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ number_format($data->totalAmount) }}</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">Discount @ {{ $validatedData->discount }}% :</td>
+					<td style="font-weight: bold;">Discount @ {{ $data->validatedData->discount }}% :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ $totalAmount*(($validatedData->discount)/100) }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ $data->totalAmount*(($data->validatedData->discount)/100) }}</td>
 				</tr>
 				
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">After Discount @ {{ ($validatedData->discount) }}% :</td>
+					<td style="font-weight: bold;">After Discount @ {{ ($data->validatedData->discount) }}% :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ $totalAmount-($totalAmount*(($validatedData->discount)/100)) }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ $data->totalAmount-($data->totalAmount*(($data->validatedData->discount)/100)) }}</td>
 				</tr>
 
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">SGST @ {{ ($validatedData->gst)/2 }}% :</td>
+					<td style="font-weight: bold;">SGST @ {{ ($data->validatedData->gst)/2 }}% :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ round((($totalAmount-($totalAmount*(($validatedData->discount)/100)))*(($validatedData->gst)/2))/100,2) }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ round((($data->totalAmount-($data->totalAmount*(($data->validatedData->discount)/100)))*(($data->validatedData->gst)/2))/100,2) }}</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">CGST @ {{ ($validatedData->gst)/2 }}% :</td>
+					<td style="font-weight: bold;">CGST @ {{ ($data->validatedData->gst)/2 }}% :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ round((($totalAmount-($totalAmount*(($validatedData->discount)/100)))*(($validatedData->gst)/2))/100,2) }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ round((($data->totalAmount-($data->totalAmount*(($data->validatedData->discount)/100)))*(($data->validatedData->gst)/2))/100,2) }}</td>
 				</tr>
 				<tr style="background-color: red; color: white">
 					<td></td>
@@ -104,7 +104,7 @@
 					<td></td>
 					<td style="font-weight: bold;">Total Amount :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ $finalAmount }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ $data->finalAmount }}</td>
 				</tr>
 
 				<tr>
@@ -113,7 +113,7 @@
 					<td></td>
 					<td style="font-weight: bold;">Received Amount :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ ($validatedData->rec_amt) }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ ($data->validatedData->rec_amt) }}</td>
 				</tr>
 
 				<tr style="background-color: red; color: white">
@@ -122,12 +122,12 @@
 					<td></td>
 					<td style="font-weight: bold;">Balance Amount :</td>
 					<td></td>
-					<td style="text-align: right; font-weight: bold;">₹ {{ ($finalAmount)-($validatedData->rec_amt) }}</td>
+					<td style="text-align: right; font-weight: bold;">₹ {{ ($data->finalAmount)-($data->validatedData->rec_amt) }}</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td style="font-weight: bold;">Total Amount in Words :</td>
-					<td style="text-align: right; font-weight: bold;">{{ $text }} only</td>
+					<td style="text-align: right; font-weight: bold;">{{ $data->text }} only</td>
 					<td></td>
 					<td></td>
 					<td></td>

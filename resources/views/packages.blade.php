@@ -52,7 +52,7 @@
                         <div class="single-room-area d-flex align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
                             <!-- Room Thumbnail -->
                             <div class="room-thumbnail">
-                                <img src="{{ asset($package->image) }}" alt="">
+                                <img src="{{ asset('img/packages/' . $package->image) }}" alt="">
                             </div>
                             <!-- Room Content -->
                             <div class="room-content">

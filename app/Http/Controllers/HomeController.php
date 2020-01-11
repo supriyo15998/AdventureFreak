@@ -58,7 +58,7 @@ class HomeController extends Controller
 
         $package = Package::create($validatedData);
         //$this->storeImage($package); 
-        $package->update(['image' => $location]);
+        $package->update(['image' => $fileName]);
         return redirect('/admin/home')->with('message', 'Package Added Successfully');
     }
     public function edit_package($id)
@@ -129,6 +129,18 @@ class HomeController extends Controller
         $finalAmount = round($finalAmount);
         $formattedText = new \NumberFormatter("en", \NumberFormatter::SPELLOUT);
         $text = $formattedText->format($finalAmount);
-        return view('admin.invoice.invoice')->withValidatedData($validatedData)->withTotalAmount($totalAmount)->withPackages($packages)->withFinalAmount($finalAmount)->withText($text);
+
+        $data = (object) [
+            'validatedData' => $validatedData,
+            'totalAmount' => $totalAmount,
+            'packages' => $packages,
+            'finalAmount' => $finalAmount,
+            'text' => $text
+        ];
+
+        $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
+        return $pdf->download('invoice.pdf');
+
+        return view('admin.invoice.invoice')->withData($data);//->withValidatedData($validatedData)->withTotalAmount($totalAmount)->withPackages($packages)->withFinalAmount($finalAmount)->withText($text);
     }
 }

@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::prefix('admin')->group(function () {
     Auth::routes();
     Route::get('/add-new-package', 'HomeController@new_package')->name('new-package');
