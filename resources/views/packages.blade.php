@@ -69,16 +69,16 @@
                             </div>
                         </div>
                     @endforeach
-
+                    {{ $packages->links() }}
                     <!-- Pagination -->
-                    <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="1000ms">
+                    <!-- <nav class="roberto-pagination wow fadeInUp mb-100" data-wow-delay="1000ms">
                         <ul class="pagination">
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">Next <i class="fa fa-angle-right"></i></a></li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
 
                 

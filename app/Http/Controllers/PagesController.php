@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Package;
 class PagesController extends Controller
 {
@@ -16,7 +17,8 @@ class PagesController extends Controller
     }
     public function package() {
         $title = 'Adventure-Freak | Packages';
-        $packages = Package::all();
+        //$packages = Package::all();
+        $packages = DB::table('packages')->simplePaginate(3);
         //dd($packages);
         return view('packages')->withTitle($title)->withPackages($packages);
     }
