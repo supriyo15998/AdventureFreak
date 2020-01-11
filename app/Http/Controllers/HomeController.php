@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Package;
-//use NumberFormatter; // kaha hai yeh?pata nai.. maine aise hi use kar liya stackoverflw me mila link 
+use Intervention\Image\Facades\Image;
+
 class HomeController extends Controller
 {
     /**
@@ -45,10 +46,19 @@ class HomeController extends Controller
             'depart_date' => 'required',
             'arrival_date' => 'required',
             'days' => 'required',
-            'nights' => 'required'
+            'nights' => 'required',
+            'image' => 'sometimes|file|image'
         ]);
-        //dd($validatedData);
-        Package::create($validatedData);
+
+        $image= $request->file('image');
+        $randomNum = bin2hex(random_bytes(8));
+        $fileName = time() . '_' . $randomNum . '.png';
+        $location = public_path('img/packages/' . $fileName);
+        Image::make($image)->resize(500,361)->save($location);
+
+        $package = Package::create($validatedData);
+        //$this->storeImage($package); 
+        $package->update(['image' => $location]);
         return redirect('/admin/home')->with('message', 'Package Added Successfully');
     }
     public function edit_package($id)
@@ -71,6 +81,9 @@ class HomeController extends Controller
         $package = Package::findOrFail($request->package_id);
 
         $package->update($validatedData);
+
+        $this->storeImage($package);
+
         return redirect('/admin/home')->with('message', 'Package Updated Successfully');
     }
     public function destroy($id)

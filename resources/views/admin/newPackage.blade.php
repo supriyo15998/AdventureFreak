@@ -68,7 +68,7 @@
             </div>
             @endif
             
-            <form method="POST" action="{{route('create_new_package')}}">
+            <form method="POST" action="{{route('create_new_package')}}" enctype="multipart/form-data">
               @csrf
               <div class="card-body">
                 <div class="form-group">
@@ -95,8 +95,12 @@
                 <div class="form-group">
                   <input type="number" name="days"><b>Days</b> <input type="number" name="nights"><b>Nights</b>
                 </div>
-                <div class="form-group">
-                  <input type="submit" name="create_package" class="btn btn-success" value="Add New Project">
+                <div class="form-group d-flex flex-column">
+                  <label for="image">Upload Photo</label>
+                  <input type="file" id="image" name="image">
+                </div>
+                <div class="form-group d-flex flex-column">
+                  <input type="submit" name="create_package" class="btn btn-success" value="Add New Package">
                 </div>
               </div>
             <form>

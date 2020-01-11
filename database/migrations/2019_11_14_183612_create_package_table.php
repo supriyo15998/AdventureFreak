@@ -23,6 +23,7 @@ class CreatePackageTable extends Migration
             $table->string('arrival_date');
             $table->bigInteger('days');
             $table->bigInteger('nights');
+            $table->string('image')->nullable();
             $table->timestamps();//yaha v naam same hona chaohye?
         });
     }
