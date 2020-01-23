@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Package;
+use App\Testimonial;
 use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
@@ -25,17 +26,21 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $title = "Admin | Home";
         $pcount = Package::count();
-        return view('admin.home')->withPcount($pcount);
+        $tcount = Testimonial::count();
+        return view('admin.home')->withPcount($pcount)->withTcount($tcount)->withTitle($title);
     }
     public function new_package()
     {
-        return view('admin.newPackage');
+        $title = "Admin | New Package";
+        return view('admin.newPackage')->withTitle($title);
     }
     public function view_packages()
     {
+        $title = "Admin | View Packages";
         $packages = Package::all();
-        return view('admin.viewPackage')->withPackages($packages);
+        return view('admin.viewPackage')->withPackages($packages)->withTitle($title);
     }
     public function create_new_package(Request $request)
     {
@@ -63,8 +68,9 @@ class HomeController extends Controller
     }
     public function edit_package($id)
     {
+        $title = "Admin | Edit Package";
         $package = Package::findOrFail($id);
-        return view('admin.editPackage')->withPackage($package);
+        return view('admin.editPackage')->withPackage($package)->withTitle($title);
     }
     public function edit_final(Request $request)
     {
@@ -93,8 +99,9 @@ class HomeController extends Controller
     }
     public function generateInvoice()
     {
+        $title = "Admin | Generate Invoice";
         $packages = Package::all();   
-        return view('admin.generateInvoice')->withPackages($packages);
+        return view('admin.generateInvoice')->withPackages($packages)->withTitle($title);
     }
     public function viewInvoice()
     {
@@ -137,10 +144,34 @@ class HomeController extends Controller
             'finalAmount' => $finalAmount,
             'text' => $text
         ];
+        //dd($data);
 
-        $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
-        return $pdf->download('invoice.pdf');
+        // $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
+        // return $pdf->stream('invoice.pdf'); //use stream for dev
 
         return view('admin.invoice.invoice')->withData($data);//->withValidatedData($validatedData)->withTotalAmount($totalAmount)->withPackages($packages)->withFinalAmount($finalAmount)->withText($text);
+    }
+    public function new_testimonial()
+    {
+        $title = "AdventureFreak | Add Testimonal";
+        return view('admin.newTestimonial')->withTitle($title);
+    }
+    public function create_testimonial(Request $request)
+    {
+        $validatedData = $request->validate([
+            'customer_name' => 'required',
+            'description' => 'required',
+            'image' => 'sometimes|file|image',
+            'star' => 'required'
+        ]);
+        $image= $request->file('image');
+        $randomNum = bin2hex(random_bytes(8));
+        $fileName = time() . '_' . $randomNum . '.png';
+        $location = public_path('img/testimonials/' . $fileName);
+        Image::make($image)->resize(500,361)->save($location);
+
+        $testimonial = Testimonial::create($validatedData);
+        $testimonial->update(['image' => $fileName]);
+        return redirect('/admin/home')->with('message', 'Testimonial Added Successfully');
     }
 }

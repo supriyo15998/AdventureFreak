@@ -27,10 +27,12 @@ Route::prefix('admin')->group(function () {
     Route::put('/edit-package/{id}', 'HomeController@edit_final')->name('edit_final');
     Route::delete('/delete-package/{id}', 'HomeController@destroy')->name('delete_package');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/add-testimonial', 'HomeController@new_testimonial')->name('new_testimonial');
+    Route::post('/add-testimonial', 'HomeController@create_testimonial')->name('create_testimonial');
 });
 
 //user
 Route::get('/', 'PagesController@index')->name('index');
-Route::get('/about-us', 'PagesController@about');
+Route::get('/about-us', 'PagesController@about')->name('about');
 Route::get('/packages', 'PagesController@package')->name('packages');
 Route::get('/contact-us', 'PagesController@contact')->name('contact');

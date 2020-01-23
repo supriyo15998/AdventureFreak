@@ -54,10 +54,10 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul id="nav">
-                                <li class="active"><a href="/">Home</a></li>
-                                <li><a href="/packages">Packages</a></li>
-                                <li><a href="/about-us">About Us</a></li>
-                                <li><a href="/contact-us">Contact</a></li>
+                                <li class="active"><a href="{{ route('index') }}">Home</a></li>
+                                <li><a href="{{ route('packages') }}">Packages</a></li>
+                                <li><a href="{{ route('about') }}">About Us</a></li>
+                                <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
 
                             <!-- Book Now -->

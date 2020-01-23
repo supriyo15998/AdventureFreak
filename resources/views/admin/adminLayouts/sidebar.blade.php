@@ -60,50 +60,21 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Images</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project_add.html" class="nav-link">
+                <a href="{{ route('new_testimonial') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Testimonials</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/recover-password.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Change Password</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Pages
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
                 </a>
               </li>
             </ul>
           </li>
           <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <li class="nav-item">
-            <a href="{{ route('logout') }}" class="nav-link">
-              <i class="nav-icon far fa-circle text-danger"></i>
-              <input type="submit" name="logout" value="Logout" class="text" style="background: transparent; color: white;">
-            </a>
-          </li>
+            <li class="nav-item has-treeview menu-open">
+              <a class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <input type="submit" value="Logout">
+              </a>
+            </li>
           </form>
         </ul>
       </nav>

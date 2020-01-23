@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Package;
+use App\Testimonial;
 class PagesController extends Controller
 {
     public function index() {
         $title = 'Adventure-Freak | Home';
-        return view('welcome', ['title'=>$title]);
+        //$testimonials = Testimonial::all();
+        //dd($testimonials);
+        $testimonials = DB::table('testimonials')->paginate(1);
+        return view('welcome')->withTitle($title)->withTestimonials($testimonials);
     }
     public function about() {
         $title = 'Adventure-Freak | About Us';
