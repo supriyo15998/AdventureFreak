@@ -148,7 +148,6 @@ class HomeController extends Controller
 
         // $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
         // return $pdf->stream('invoice.pdf'); //use stream for dev
-
         return view('admin.invoice.invoice')->withData($data);//->withValidatedData($validatedData)->withTotalAmount($totalAmount)->withPackages($packages)->withFinalAmount($finalAmount)->withText($text);
     }
     public function new_testimonial()

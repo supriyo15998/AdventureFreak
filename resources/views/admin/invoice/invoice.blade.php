@@ -70,7 +70,7 @@
 					<td></td>
 					<td style="font-weight: bold;">Discount @ {{ $data->validatedData->discount }}% :</td>
 					<td></td>
-					<td style="font-weight: bold;">₹ {{ $data->totalAmount*(($data->validatedData->discount)/100) }}</td>
+					<td style="font-weight: bold;">- ₹ {{ $data->totalAmount*(($data->validatedData->discount)/100) }}</td>
 				</tr>
 				
 				<tr>
