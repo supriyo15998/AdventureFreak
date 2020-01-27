@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Package;
 use App\Testimonial;
+use App\Invoice;
 use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
@@ -145,9 +146,20 @@ class HomeController extends Controller
             'text' => $text
         ];
         //dd($data);
-
+        // Invoice::create([
+        //     'package_name' => $data->validatedData->billingName,
+        //     'quantity' => $data->validatedData->package_quantity,
+        //     'date' => $data->validatedData->date,
+        //     'bill_to_name' => $data->validatedData->billingName,
+        //     'address' => $data->validatedData->address,
+        //     'phone' => $data->
+        //     'discount' =>
+        //     'gst' => 
+        //     'received_amt' =>
+        // ]);
         $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
-        return $pdf->download('invoice.pdf');
+        return $pdf->stream('invoice.pdf');
+        //return view('admin.invoice.invoice')->withData($data);
     }
     public function new_testimonial()
     {

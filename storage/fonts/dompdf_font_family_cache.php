@@ -78,10 +78,12 @@
     'normal' => $rootDir . '/lib/fonts/DejaVuSerif',
   ),
   'ionicons' => array(
-    'normal' => $fontDir . '/499ed0e151682fc2c1ba5340c204f05f',
+    'normal' => $fontDir . '/ionicons-normal_499ed0e151682fc2c1ba5340c204f05f',
   ),
   'source sans pro' => array(
-    'italic' => $fontDir . '/ee7ae5fa11aa2d31d073a974b71aff96',
-    'normal' => $fontDir . '/302e2dc707bd747512a5d4b16bfd7a0f',
+    'italic' => $fontDir . '/source-sans-pro-italic_ee7ae5fa11aa2d31d073a974b71aff96',
+    'normal' => $fontDir . '/source-sans-pro-normal_9bbc93cd4eeb4c96ec714f118af1ef95',
+    '300' => $fontDir . '/source-sans-pro-300_302e2dc707bd747512a5d4b16bfd7a0f',
+    'bold' => $fontDir . '/source-sans-pro-bold_3e55723bb0d4936b0320296623a8c224',
   ),
 ) ?>

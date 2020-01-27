@@ -18,10 +18,11 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<h2 style="font-family: 'Merriweather', serif; font-weight: bold; margin-top: 2%">Adventure Freak</h2>
-				<p>CR Road, Kamarpara, Sodepur, Dist: 24 pgs (N), Kolkata:700113 ,W.B.</p>
-				<p>Phone no: 7980328015</p>
-				<p>Email: adventurefreakindia@gmail.com</p>
+				<img src="img/core-img/sup1.jpg">
+				<!-- <h2 style="font-family: 'Merriweather', serif; font-weight: bold; margin-top: 2%">Adventure Freak</h2> -->
+				<p>CR Road, Kamarpara, Sodepur<br>Dist: 24 pgs (N), Kolkata:700113 ,W.B.<br>
+				Phone no: 7980328015<br>
+				Email: adventurefreakindia@gmail.com</p>
 			</div>
 		</div>
 		<h2 style="text-align: center; color: red;font-family: 'Merriweather', serif; font-weight: bold;">TAX INVOICE</h2>
