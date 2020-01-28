@@ -55,14 +55,14 @@
                         <div class="classynav">
                             <ul id="nav">
                                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                                <li><a href="{{ route('packages') }}">Packages</a></li>
+                                <li><a href="{{ route('adventurous_tour') }}">Packages</a></li>
                                 <li><a href="{{ route('about') }}">About Us</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
 
                             <!-- Book Now -->
                             <div class="book-now-btn ml-3 ml-lg-5">
-                                <a href="{{ route('packages') }}">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                <a href="{{ route('adventurous_tour') }}">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <!-- Nav End -->

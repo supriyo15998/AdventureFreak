@@ -30,4 +30,20 @@ class PagesController extends Controller
         $title = 'Adventure-Freak | Contact Us';
         return view('contactus', ['title'=>$title]);
     }
+    public function adventurous_tour() {
+        $packages = DB::table('packages')->where('package_category','adventurous-tour')->get();
+        //dd($packages);
+        $title = "Adventure-Freak | Adventurous Tour";
+        return view('packages.adventurous')->withTitle($title)->withPackages($packages);
+    }
+    public function trekking() {
+        $packages = DB::table('packages')->where('package_category','trekking')->get();
+        $title = "Adventure-Freak | Trekking";
+        return view('packages.trekking')->withTitle($title)->withPackages($packages);
+    }
+    public function city_tour() {
+        $packages = DB::table('packages')->where('package_category','city-tour')->get();
+        $title = "Adventure-Freak | City Tour";
+        return view('packages.citytour')->withTitle($title)->withPackages($packages);
+    }
 }

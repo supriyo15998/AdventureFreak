@@ -54,6 +54,9 @@
                           ID
                       </th>
                       <th>
+                          Package Category
+                      </th>
+                      <th>
                           Package Name
                       </th>
                       <th>
@@ -76,6 +79,9 @@
                   <tr>
                       <td>
                           {{ $package->id }}
+                      </td>
+                      <td>
+                          {{ $package->package_category }}
                       </td>
                       <td>
                           <a>

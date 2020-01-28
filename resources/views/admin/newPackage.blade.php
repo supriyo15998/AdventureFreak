@@ -72,6 +72,15 @@
               @csrf
               <div class="card-body">
                 <div class="form-group">
+                  <label for="package_category">Package Category</label>
+                  <select id="package_category" class="form-control" name="package_category">
+                    <option autofocus disabled>Select Package Category</option>
+                    <option value="adventurous-tour">Adventurous Tour</option>
+                    <option value="trekking">Trekking</option>
+                    <option value="city-tour">City Tour</option>
+                  </select>
+                </div>
+                <div class="form-group">
                   <label for="inputName">Package Name</label>
                   <input type="text" name="package_name" id="inputName" class="form-control">
                 </div>

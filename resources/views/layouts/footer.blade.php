@@ -28,7 +28,7 @@
                         <!-- Footer Nav -->
                         <ul class="footer-nav">
                             <li><a href="{{ route('index') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Home</a></li>
-                            <li><a href="{{ route('packages') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Packages</a></li>
+                            <li><a href="{{ route('adventurous_tour') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Packages</a></li>
                             <li><a href="{{ route('about') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> About Us</a></li>
                             <li><a href="{{ route('contact') }}"><i class="fa fa-caret-right" aria-hidden="true"></i> Contact</a></li>
                         </ul>

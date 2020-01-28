@@ -46,6 +46,7 @@ class HomeController extends Controller
     public function create_new_package(Request $request)
     {
         $validatedData = $request->validate([
+            'package_category' => 'required',
             'package_name' => 'required',
             'amount_per_head' => 'required',
             'facilities' => 'required',

@@ -46,7 +46,7 @@
                                 <div class="welcome-text text-center">
                                     <h6 data-animation="fadeInLeft" data-delay="200ms">Tour &amp; Travels</h6>
                                     <h2 data-animation="fadeInLeft" data-delay="500ms">Welcome To AdventureFreak</h2>
-                                    <a href="{{ route('packages') }}" class="btn roberto-btn btn-2" data-animation="fadeInLeft" data-delay="800ms">Show Packages</a>
+                                    <a href="{{ route('adventurous_tour') }}" class="btn roberto-btn btn-2" data-animation="fadeInLeft" data-delay="800ms">Show Packages</a>
                                 </div>
                             </div>
                         </div>
