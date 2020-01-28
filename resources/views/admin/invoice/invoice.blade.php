@@ -14,11 +14,11 @@
 <body>
 	<div class="container">
 		<div class="logo" style="float: right;">
-			<img src="img/core-img/logojpgfinal.jpg">
+			<img src="img/core-img/invoice_logo.jpg">
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<img src="img/core-img/sup1.jpg">
+				<img src="img/core-img/sup1copy.jpg">
 				<!-- <h2 style="font-family: 'Merriweather', serif; font-weight: bold; margin-top: 2%">Adventure Freak</h2> -->
 				<p>CR Road, Kamarpara, Sodepur<br>Dist: 24 pgs (N), Kolkata:700113 ,W.B.<br>
 				Phone no: 7980328015<br>

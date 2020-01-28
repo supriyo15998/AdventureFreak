@@ -36,3 +36,10 @@ Route::get('/', 'PagesController@index')->name('index');
 Route::get('/about-us', 'PagesController@about')->name('about');
 Route::get('/packages', 'PagesController@package')->name('packages');
 Route::get('/contact-us', 'PagesController@contact')->name('contact');
+//package routes
+Route::prefix('packages')->group(function() {
+    //register your package routes here
+    Route::get('/tour-n-travel','PagesController@package_tour')->name('package_tour');
+    Route::get('/trekking', 'PagesController@trekking')->name('trekking');
+    Route::get('/foodwalk', 'PagesController@foodwalk')->name('foodwalk');
+});
