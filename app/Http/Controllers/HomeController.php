@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Package;
 use App\Testimonial;
 use App\Invoice;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
@@ -30,7 +31,8 @@ class HomeController extends Controller
         $title = "Admin | Home";
         $pcount = Package::count();
         $tcount = Testimonial::count();
-        return view('admin.home')->withPcount($pcount)->withTcount($tcount)->withTitle($title);
+        $icount = Invoice::count();
+        return view('admin.home')->withPcount($pcount)->withTcount($tcount)->withTitle($title)->withIcount($icount);
     }
     public function new_package()
     {
@@ -87,10 +89,14 @@ class HomeController extends Controller
         ]);
 
         $package = Package::findOrFail($request->package_id);
-
+        $image= $request->file('image');
+        $randomNum = bin2hex(random_bytes(8));
+        $fileName = time() . '_' . $randomNum . '.png';
+        $location = public_path('img/packages/' . $fileName);
+        Image::make($image)->resize(500,361)->save($location);
         $package->update($validatedData);
-
-        $this->storeImage($package);
+        $package->update(['image' => $fileName]);
+        //$this->storeImage($package);
 
         return redirect('/admin/home')->with('message', 'Package Updated Successfully');
     }
@@ -107,7 +113,41 @@ class HomeController extends Controller
     }
     public function viewInvoice()
     {
-        return view('admin.showInvoice');
+        // dd(Invoice::all());
+        return view('admin.showInvoice')->withInvoices(Invoice::all());
+    }
+    public function printInvoice($invoiceId) { 
+        $invoice = Invoice::findOrFail($invoiceId);
+        $totalAmount = 0;
+        foreach ($invoice->packages as $key => $package) {
+            $totalAmount += $package->amount_per_head * $package->pivot->quantity;
+        }
+        $validatedData = (object) [
+            'date' => $invoice->date,
+            'billingName' => $invoice->bill_to_name,
+            'address' => $invoice->address,
+            'phone' => $invoice->phone,
+            // 'package_id' => ,
+            // 'package_quantity' => , ye rahega na?
+            'discount' => $invoice->discount,
+            'gst' => $invoice->gst,
+            'rec_amt' => $invoice->received_amt
+        ];
+
+        $finalAmount = ($totalAmount-($totalAmount*(($validatedData->discount)/100)))+(2*(round((($totalAmount-($totalAmount*(($validatedData->discount)/100)))*(($validatedData->gst)/2))/100,2)));
+        $finalAmount = round($finalAmount);
+        $formattedText = new \NumberFormatter("en", \NumberFormatter::SPELLOUT);
+        $text = $formattedText->format($finalAmount);
+        // After all calculations and creating that data object
+        $data = (object) [
+            'invoice' => $invoice,
+            'totalAmount' => $totalAmount,
+            'finalAmount' => $finalAmount,
+            'text' => $text
+        ];
+
+        $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
+        return $pdf->stream('invoice.pdf');
     }
     public function createInvoice(Request $request)
     {
@@ -124,15 +164,24 @@ class HomeController extends Controller
             'rec_amt' => 'required'
         ]);
 
-        $totalAmount = 0;
-        $packages = array();
+        $invoice = Invoice::create([
+            'date' => $validatedData->date,
+            'bill_to_name' => $validatedData->billingName,
+            'address' => $validatedData->address,
+            'phone' => $validatedData->phone,
+            'discount' => $validatedData->discount,
+            'gst' => $validatedData->gst,
+            'received_amt' => $validatedData->rec_amt,
+        ]);
 
-        foreach ($request->package_id as $key => $package_id) {
-            $package = Package::findOrFail($package_id); 
-            $totalAmount += $package->amount_per_head * $request->package_quantity[$key];
-            array_push($packages, $package);  
+        foreach ($request->package_id as $key => $package) {
+            $attach = $invoice->packages()->attach($package, ['quantity' => $request->package_quantity[$key]]);
         }
-        //dd($validatedData);
+
+        $totalAmount = 0;
+        foreach ($invoice->packages as $key => $package) {
+            $totalAmount += $package->amount_per_head * $package->pivot->quantity;
+        }        //dd($validatedData);
         //dd($package);
         $finalAmount = ($totalAmount-($totalAmount*(($validatedData->discount)/100)))+(2*(round((($totalAmount-($totalAmount*(($validatedData->discount)/100)))*(($validatedData->gst)/2))/100,2)));
         $finalAmount = round($finalAmount);
@@ -140,24 +189,14 @@ class HomeController extends Controller
         $text = $formattedText->format($finalAmount);
 
         $data = (object) [
-            'validatedData' => $validatedData,
+            'invoice' => $invoice,
             'totalAmount' => $totalAmount,
-            'packages' => $packages,
             'finalAmount' => $finalAmount,
             'text' => $text
         ];
         //dd($data);
-        // Invoice::create([
-        //     'package_name' => $data->validatedData->billingName,
-        //     'quantity' => $data->validatedData->package_quantity,
-        //     'date' => $data->validatedData->date,
-        //     'bill_to_name' => $data->validatedData->billingName,
-        //     'address' => $data->validatedData->address,
-        //     'phone' => $data->
-        //     'discount' =>
-        //     'gst' => 
-        //     'received_amt' =>
-        // ]);
+
+
         $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
         return $pdf->stream('invoice.pdf');
         //return view('admin.invoice.invoice')->withData($data);

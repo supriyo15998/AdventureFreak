@@ -26,6 +26,7 @@
         </div>
     </div>
     @include('layouts.packagenav')
+    <h2 style="text-align: center; font-family: sans-serif;">City Tours</h2>
     <div class="roberto-rooms-area section-padding-100-0">
         <div class="container">
             <div class="row">

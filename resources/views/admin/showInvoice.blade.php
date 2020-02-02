@@ -160,7 +160,7 @@
     <section class="content">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Show Invoices</h3>
+          <h3 class="card-title">All Invoices</h3>
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
               <i class="fas fa-minus"></i></button>
@@ -170,59 +170,48 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th>
-                          ID
-                      </th>
-                      <th>
-                          Package Name
-                      </th>
-                      <th>
-                          Amount per head
-                      </th>
-                      <th>
-                          Facilites
-                      </th>
-                      <th>
-                          Departure
-                      </th>
-                      <th>
-                          Arrival
-                      </th>
+                      <th>ID</th>
+                      <th>Customer Name</th>
+                      <th>Package Details</th>
+                      <th>Total Amount</th>
                   </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>abcd</td>
-                  <td>
-                    <a>efgh</a>
-                    <br/>
-                    <small>
-                      ijkl
-                    </small>
-                  </td>
-                  <td>
-                    <p>mnop</p>
-                  </td>
-                  <td class="project_progress">
-                    qrst
-                  </td>
-                  <td class="project_state">
-                    uvwx
-                  </td>
-                  <td class="project-actions text-right">
-                          
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                  </td>
-                </tr>
+                @foreach($invoices as $invoice)
+                  <tr>
+                    <td>{{ $invoice->id }}</td>
+                    <td>{{ $invoice->bill_to_name }}</td>
+                    <td>
+                      <table class="table projects">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($invoice->packages as $package)
+                            <tr><td>{{ $package->package_name }}</td><td>{{ $package->pivot->quantity }}</td></tr>
+                          @endforeach                        
+                        </tbody>
+                      </table>
+                    </td>
+                    <td class="project-actions text-right">      
+                      <a class="btn btn-danger btn-sm" href="#">
+                          <i class="fas fa-trash">
+                          </i>
+                          Delete
+                      </a>
+                    </td>
+                    <td>
+                      <a class="btn btn-primary btn-sm" href="{{ route('print-invoice', $invoice->id) }}">
+                        <i class="fas fa-print">
+                        </i>
+                        Print
+                      </a>
+                    </td>
+                  </tr>
+                @endforeach
               </tbody>
           </table>
         </div>

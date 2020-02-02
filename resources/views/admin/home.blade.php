@@ -41,7 +41,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div>
         </div>
@@ -75,8 +75,8 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
-                <p>User Registrations</p>
+                <h3>{{ $icount }}</h3>
+                <p>Invoice Generated</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>

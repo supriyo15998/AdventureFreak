@@ -28,13 +28,13 @@
 		<h2 style="text-align: center; color: red;font-family: 'Merriweather', serif; font-weight: bold;">TAX INVOICE</h2>
 		<div class="row">
 			<div style="float: right;">
-				<p style="font-weight: bold;">Invoice No:</p>
-				<p style="font-weight: bold;">Date: {{ $data->validatedData->date }}</p>
+				<p style="font-weight: bold;">Invoice No: {{ 1000+$data->invoice->id }}</p>
+				<p style="font-weight: bold;">Date: {{ $data->invoice->date }}</p>
 			</div>
 			<div>
-				<p style="font-weight: bold;">Bill To: {{ $data->validatedData->billingName }}</p>
-				<p>{{ $data->validatedData->address }}</p>
-				<p>Contact No: {{ $data->validatedData->phone }}</p>
+				<p style="font-weight: bold;">Bill To: {{ $data->invoice->bill_to_name }}</p>
+				<p>{{ $data->invoice->address }}</p>
+				<p>Contact No: {{ $data->invoice->phone }}</p>
 			</div>
 			
 		</div>		
@@ -50,14 +50,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($data->packages as $key => $package)
+				@foreach($data->invoice->packages as $key => $package)
 					<tr>
 						<td>{{ $key+1 }}</td>
 						<td>{{ $package->package_name }}</td>
 						<td>{{ $package->facilities }}</td>
-						<td>{{ $data->validatedData->package_quantity[$key] }}</td>
+						<td>{{ $package->pivot->quantity }}</td>
 						<td>Rs. {{ number_format($package->amount_per_head) }}</td>
-						<td>Rs. {{ number_format($data->validatedData->package_quantity[$key] * $package->amount_per_head) }}</td>
+						<td>Rs. {{ number_format($package->pivot->quantity * $package->amount_per_head) }}</td>
 					</tr>
 				@endforeach
 				<tr>
@@ -72,35 +72,35 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">Discount @ {{ $data->validatedData->discount }}%</td>
+					<td style="font-weight: bold;">Discount @ {{ $data->invoice->discount }}%</td>
 					<td></td>
-					<td style="font-weight: bold;">- Rs. {{ $data->totalAmount*(($data->validatedData->discount)/100) }}</td>
+					<td style="font-weight: bold;">- Rs. {{ $data->totalAmount*(($data->invoice->discount)/100) }}</td>
 				</tr>
 				
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">After Discount @ {{ ($data->validatedData->discount) }}% :</td>
+					<td style="font-weight: bold;">After Discount @ {{ ($data->invoice->discount) }}% :</td>
 					<td></td>
-					<td style="font-weight: bold;">Rs. {{ $data->totalAmount-($data->totalAmount*(($data->validatedData->discount)/100)) }}</td>
+					<td style="font-weight: bold;">Rs. {{ $data->totalAmount-($data->totalAmount*(($data->invoice->discount)/100)) }}</td>
 				</tr>
 
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">SGST @ {{ ($data->validatedData->gst)/2 }}% :</td>
+					<td style="font-weight: bold;">SGST @ {{ ($data->invoice->gst)/2 }}% :</td>
 					<td></td>
-					<td style="font-weight: bold;">Rs. {{ round((($data->totalAmount-($data->totalAmount*(($data->validatedData->discount)/100)))*(($data->validatedData->gst)/2))/100,2) }}</td>
+					<td style="font-weight: bold;">Rs. {{ round((($data->totalAmount-($data->totalAmount*(($data->invoice->discount)/100)))*(($data->invoice->gst)/2))/100,2) }}</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td style="font-weight: bold;">CGST @ {{ ($data->validatedData->gst)/2 }}% :</td>
+					<td style="font-weight: bold;">CGST @ {{ ($data->invoice->gst)/2 }}% :</td>
 					<td></td>
-					<td style="font-weight: bold;">Rs. {{ round((($data->totalAmount-($data->totalAmount*(($data->validatedData->discount)/100)))*(($data->validatedData->gst)/2))/100,2) }}</td>
+					<td style="font-weight: bold;">Rs. {{ round((($data->totalAmount-($data->totalAmount*(($data->invoice->discount)/100)))*(($data->invoice->gst)/2))/100,2) }}</td>
 				</tr>
 				<tr style="background-color: red; color: white">
 					<td></td>
@@ -117,7 +117,7 @@
 					<td></td>
 					<td style="font-weight: bold;">Received Amount</td>
 					<td></td>
-					<td style="font-weight: bold;">Rs. {{ ($data->validatedData->rec_amt) }}</td>
+					<td style="font-weight: bold;">Rs. {{ ($data->invoice->received_amt) }}</td>
 				</tr>
 
 				<tr style="background-color: red; color: white">
@@ -126,15 +126,10 @@
 					<td></td>
 					<td style="font-weight: bold;">Balance Amount</td>
 					<td></td>
-					<td style="font-weight: bold;">Rs. {{ ($data->finalAmount)-($data->validatedData->rec_amt) }}</td>
+					<td style="font-weight: bold;">Rs. {{ ($data->finalAmount)-($data->invoice->received_amt) }}</td>
 				</tr>
 				<tr>
-					<td></td>
-					<td style="font-weight: bold;">Total Amount in Words :</td>
-					<td style="font-weight: bold;">{{ ucwords($data->text) }} only</td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td style="font-weight: bold;" colspan="6">Total Amount in Words : {{ ucwords($data->text) }} only</td>
 				</tr>
 			</tbody>
 		</table>

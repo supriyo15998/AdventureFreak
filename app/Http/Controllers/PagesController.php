@@ -31,6 +31,7 @@ class PagesController extends Controller
         return view('contactus', ['title'=>$title]);
     }
     public function adventurous_tour() {
+        //$companies = DB::table('users')->where('role', 3)->get();
         $packages = DB::table('packages')->where('package_category','adventurous-tour')->get();
         //dd($packages);
         $title = "Adventure-Freak | Adventurous Tour";
