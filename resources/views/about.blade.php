@@ -15,7 +15,7 @@
         <div class="loader"></div>
     </div>
     @include('layouts.nav')
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16a.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({{ url('img/bg-img/16a.jpg')  }});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -23,7 +23,7 @@
                         <h2 class="page-title">About Us</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">About Us</li>
                             </ol>
                         </nav>
@@ -40,19 +40,20 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
                     <div class="about-thumbnail pr-lg-5 mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <img src="img/bg-img/19.jpg" alt="">
+                        <!-- <img src="img/bg-img/19.jpg" alt=""> -->
+                        <img src="img/core-img/manager.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
                     <!-- Section Heading -->
                     <div class="section-heading wow fadeInUp" data-wow-delay="300ms">
                         <h6>Our Motto</h6>
-                        <h2>20 Years Of Experience</h2>
+                        <h2>Travel is our therapy</h2>
                     </div>
                     <div class="about-content mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. Sed ut perspiciatis unde omnis iste. Lorem Ipsum available.</p>
-                        <img src="img/core-img/signature.png" alt="">
+                        <p>Your Passion is our Satisfaction</p>
+                        <p>AdventureFreak conducts more than 15 types of treks all over the India. Apart from that, various kinds of city tour/food exploration/adventuruous tours are conducted.</p>
+                        <img src="img/core-img/signature1.png" alt="">
                     </div>
                 </div>
             </div>
@@ -68,7 +69,7 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center white wow fadeInUp" data-wow-delay="100ms">
                         <h6>Ultimate Solutions</h6>
-                        <h2>Our Hotel &amp; Room</h2>
+                        <h2 style="font-size: 200%">Our Moments &amp; Memories</h2>
                     </div>
                     <div class="video-content-area mt-100 wow fadeInUp" data-wow-delay="500ms">
                         <a href="https://www.youtube.com/watch?v=Ldd8yjjo6jA" class="video-play-btn"><i class="fa fa-play"></i></a>

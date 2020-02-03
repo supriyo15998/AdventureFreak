@@ -46,7 +46,7 @@
                                     <h6>Days: <span>{{ ($package->days) }}</span></h6>
                                     <h6>Nights: <span>{{ ($package->nights) }}</span></h6>
                                 </div>
-                                <a href="#" class="btn view-detail-btn">Enquiry<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                <a href="{{ route('contact') }}" class="btn view-detail-btn">Enquiry<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     @endforeach

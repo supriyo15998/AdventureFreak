@@ -181,7 +181,7 @@
         $(document).ready(function() {
             setTimeout(function() {
                 $('#exampleModal').modal('show');
-            }, 2000);
+            }, 5000);
         });
     </script>
 </body>
