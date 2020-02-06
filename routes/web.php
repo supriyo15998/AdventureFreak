@@ -30,6 +30,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/add-testimonial', 'HomeController@new_testimonial')->name('new_testimonial');
     Route::post('/add-testimonial', 'HomeController@create_testimonial')->name('create_testimonial');
+    Route::get('/add-customer', 'HomeController@new_customer')->name('new_customer');
+    Route::post('/add-customer', 'HomeController@add_customer')->name('add_customer');
+    Route::get('/view-customer', 'HomeController@view_customer')->name('view_customer');
 });
 
 //user

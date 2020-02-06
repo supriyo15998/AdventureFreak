@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Package;
 use App\Testimonial;
 use App\Invoice;
+use App\Customer;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
@@ -223,5 +224,29 @@ class HomeController extends Controller
         $testimonial = Testimonial::create($validatedData);
         $testimonial->update(['image' => $fileName]);
         return redirect('/admin/home')->with('message', 'Testimonial Added Successfully');
+    }
+    public function new_customer()
+    {
+        $title = "AdventureFreak | Add Customer";
+        return view('admin.addCustomer')->withTitle($title);
+    }
+    public function add_customer(Request $request)
+    {
+        $validatedData = $request->validate([
+            'invoice_numbers' => 'required',
+            'customer_name' => 'required',
+            'phone' => 'required|max:10|min:10',
+            'package_names' => 'required',
+            'dob' => 'required',
+            'doa' => 'required',
+            'sex' => 'required'
+        ]);
+        Customer::create($validatedData);
+        return redirect('/admin/home')->with('message', 'Customer Added Successfully');
+    }
+    public function view_customer()
+    {
+        $title = "AdventureFreak | View Customers";
+        return view('admin.viewCustomers')->withTitle($title);
     }
 }

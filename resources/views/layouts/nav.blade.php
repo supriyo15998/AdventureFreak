@@ -55,7 +55,16 @@
                         <div class="classynav">
                             <ul id="nav">
                                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                                <li><a href="{{ route('adventurous_tour') }}">Packages</a></li>
+                                
+                                <!-- <li><a href="{{ route('about') }}">About Us</a></li> -->
+                                <li>
+                                    <a href="#">Packages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('adventurous_tour') }}">- Adventurous Tours</a></li>
+                                        <li><a href="{{ route('trekking') }}">- Trekking</a></li>
+                                        <li><a href="{{ route('city_tour') }}">- City Tours</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="{{ route('about') }}">About Us</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>

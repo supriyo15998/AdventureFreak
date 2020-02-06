@@ -67,6 +67,35 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Add Customer Details
+                <i class="fas fa-angle-right right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('new_customer') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Update Existing</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('view_customer') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Customers</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <form method="POST" action="{{ route('logout') }}">
             @csrf
             <li class="nav-item has-treeview menu-open">

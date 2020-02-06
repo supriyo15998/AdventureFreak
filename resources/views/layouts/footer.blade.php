@@ -8,7 +8,7 @@
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-footer-widget mb-80">
                         <!-- Footer Logo -->
-                        <a href="#" class="footer-logo"><img src="img/core-img/logo2new.png" alt=""></a>
+                        <a href="{{ route('index') }}" class="footer-logo"><img src="{{asset('img/core-img/logo2new.png')}}" alt=""></a>
 
                         <h4>(+91) 79803 28015</h4>
                         <span>adventurefreakindia@gmail.com</span>
