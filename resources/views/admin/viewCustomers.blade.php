@@ -74,44 +74,55 @@
                       <th>
                           Sex
                       </th>
+                      <th>
+                        Action
+                      </th>
                   </tr>
               </thead>
               <tbody>
+                  @foreach($customers as $customer)
                   <tr>
                       <td>
-                          package id
+                          F00{{ $customer->id }}
                       </td>
                       <td>
-                          package category
+                          {{ $customer->customer_name }}
                       </td>
                       <td>
                           <a>
-                            package_name
+                            {{ $customer->invoice_numbers }}
                           </a>
                           <br/>
                           <small>
-                              Created:
+                              Created: {{ $customer->created_at->format('d/m/Y') }}
                           </small>
                       </td>
                       <td>
-                          <p>amount_per_head</p>
+                          <p>{{ $customer->package_names }}</p>
                       </td>
                       <td class="project_progress">
-                          <p>facilities</p>
+                          <p>{{ $customer->phone }}</p>
                       </td>
                       <td class="project-state">
-                          <p>depart_date</p>
+                          <p>{{ $customer->dob }}</p>
                       </td>
                       <td>
-                        <p>arrival_date</p>
+                        <p>{{ $customer->doa }}</p>
                       </td>
                       <td>
-                        <p>Karwa DO</p>
+                        <p>{{ ucfirst($customer->sex) }}</p>
+                      </td>
+                      <td>
+                        <form action="{{ route('update_customer', $customer->id) }}" method="GET">
+                          <input type="submit" name="submit" class="btn btn-warning" value="Update Details">
+                        </form>
+
                       </td>
                   </tr>
-
+                  @endforeach
               </tbody>
           </table>
+          <a href="{{ route('exportXLS') }}" class="btn btn-success">Export to Excel</a>
         </div>
         <!-- /.card-body -->
       </div>

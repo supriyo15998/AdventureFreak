@@ -77,11 +77,15 @@
                       </table>
                     </td>
                     <td class="project-actions text-right">      
-                      <a class="btn btn-danger btn-sm" href="#">
-                          <i class="fas fa-trash">
-                          </i>
-                          Delete
-                      </a>
+                      <form method="POST" style="display: inline;" action="{{ route('delete_invoice', $invoice->id) }}">
+                          @method('delete')
+                          @csrf
+                          <button type="submit" onclick="return confirm('Are you sure want to delete this data?')" class="btn btn-danger btn-sm">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </button>
+                        </form>
                     </td>
                     <td>
                       <a class="btn btn-primary btn-sm" href="{{ route('print-invoice', $invoice->id) }}">

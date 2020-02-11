@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ $title }}</title>
-    <link rel="icon" href="./img/core-img/favicon2.png">
+    <link rel="icon" href="{{ asset('img/core-img/favicon2.png') }}">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,7 +38,7 @@
     -->
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/16a.jpg);" data-img-url="img/bg-img/16.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/16a.jpg') }});" data-img-url="img/bg-img/16.jpg">
                 <div class="welcome-content h-100">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/17b.jpg);" data-img-url="img/bg-img/17.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/17b.jpg') }});" data-img-url="img/bg-img/17.jpg">
                 <div class="welcome-content h-100">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
@@ -88,7 +88,7 @@
                     <div class="about-us-content mb-100">
                         <h5 class="wow fadeInUp" data-wow-delay="300ms">We are happy to announce that we are conducting 37+ treks officially throughout India.</h5>
                         <p class="wow fadeInUp" data-wow-delay="400ms">Founder: <span>Supriyo Das</span></p>
-                        <img src="img/core-img/signature1.png" alt="" class="wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{{ asset('img/core-img/signature1.png')}}" alt="" class="wow fadeInUp" data-wow-delay="500ms">
                     </div>
                 </div>
 
@@ -97,10 +97,10 @@
                         <div class="row no-gutters">
                             <div class="col-12">
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/13a.jpg" alt="">
+                                    <img src="{{ asset('img/bg-img/13a.jpg')}}" alt="">
                                 </div>
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/14a.jpg" alt="">
+                                    <img src="{{ asset('img/bg-img/14a.jpg')}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -172,11 +172,11 @@
     </section>
     @include('layouts.contact')
     @include('layouts.footer')
-    <script src="jsUser/jquery.min.js"></script>
-    <script src="jsUser/popper.min.js"></script>
-    <script src="jsUser/bootstrap.min.js"></script>
-    <script src="jsUser/roberto.bundle.js"></script>
-    <script src="jsUser/default-assets/active.js"></script>
+    <script src="{{ asset('jsUser/jquery.min.js')}}"></script>
+    <script src="{{ asset('jsUser/popper.min.js')}}"></script>
+    <script src="{{ asset('jsUser/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('jsUser/roberto.bundle.js')}}"></script>
+    <script src="{{ asset('jsUser/default-assets/active.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {

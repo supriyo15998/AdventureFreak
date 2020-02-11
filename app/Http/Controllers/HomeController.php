@@ -9,6 +9,8 @@ use App\Invoice;
 use App\Customer;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use App\Exports\CustomersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
 {
@@ -33,7 +35,8 @@ class HomeController extends Controller
         $pcount = Package::count();
         $tcount = Testimonial::count();
         $icount = Invoice::count();
-        return view('admin.home')->withPcount($pcount)->withTcount($tcount)->withTitle($title)->withIcount($icount);
+        $ccount = Customer::count();
+        return view('admin.home')->withPcount($pcount)->withTcount($tcount)->withTitle($title)->withIcount($icount)->withCcount($ccount);
     }
     public function new_package()
     {
@@ -80,6 +83,7 @@ class HomeController extends Controller
     public function edit_final(Request $request)
     {
         $validatedData = $request->validate([
+            'package_category' => 'required',
             'package_name' => 'required',
             'amount_per_head' => 'required',
             'facilities' => 'required',
@@ -88,15 +92,18 @@ class HomeController extends Controller
             'days' => 'required',
             'nights' => 'required'
         ]);
-
         $package = Package::findOrFail($request->package_id);
-        $image= $request->file('image');
-        $randomNum = bin2hex(random_bytes(8));
-        $fileName = time() . '_' . $randomNum . '.png';
-        $location = public_path('img/packages/' . $fileName);
-        Image::make($image)->resize(500,361)->save($location);
+        if ($request->hasFile('image')) {
+            
+            $image= $request->file('image');
+            $randomNum = bin2hex(random_bytes(8));
+            $fileName = time() . '_' . $randomNum . '.png';
+            $location = public_path('img/packages/' . $fileName);
+            Image::make($image)->resize(500,361)->save($location);
+            $package->update(['image' => $fileName]);
+        }
         $package->update($validatedData);
-        $package->update(['image' => $fileName]);
+
         //$this->storeImage($package);
 
         return redirect('/admin/home')->with('message', 'Package Updated Successfully');
@@ -246,7 +253,39 @@ class HomeController extends Controller
     }
     public function view_customer()
     {
+        $customers = Customer::all();
         $title = "AdventureFreak | View Customers";
-        return view('admin.viewCustomers')->withTitle($title);
+        //dd($customers);
+        return view('admin.viewCustomers')->withTitle($title)->withCustomers($customers);
+    }
+    public function update_customer($id)
+    {
+        $customer = Customer::findOrFail($id);
+        $title = "AdventureFreak | Update Customer";
+        return view('admin.updateCustomer')->withCustomer($customer)->withTitle($title);
+    }
+    public function update_customer_final(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'invoice_numbers' => 'required',
+            'customer_name' => 'required',
+            'phone' => 'required|max:10|min:10',
+            'package_names' => 'required',
+            'dob' => 'required',
+            'doa' => 'required',
+            'sex' => 'required'
+        ]);
+        $customer = Customer::findOrFail($id);
+        $customer->update($validatedData);
+        return redirect('/admin/home')->with('message', 'Customer Details Updated Successfully');
+    }
+    public function destroyInvoice($id)
+    {
+        $invoice = Invoice::findOrFail($id)->delete();
+        return redirect('/admin/home')->with('message', 'Customer Data Deleted Successfully');
+    }
+    public function exportXLS() 
+    {
+        return Excel::download(new CustomersExport, 'customers.xlsx');
     }
 }

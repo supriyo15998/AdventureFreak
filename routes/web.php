@@ -33,6 +33,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/add-customer', 'HomeController@new_customer')->name('new_customer');
     Route::post('/add-customer', 'HomeController@add_customer')->name('add_customer');
     Route::get('/view-customer', 'HomeController@view_customer')->name('view_customer');
+    Route::get('/update-customer/{id}', 'HomeController@update_customer')->name('update_customer');
+    Route::put('/update-customer/{id}', 'HomeController@update_customer_final')->name('update_customer_final');
+    Route::delete('/delete-invoice/{id}', 'HomeController@destroyInvoice')->name('delete_invoice');
+    Route::get('/export-customer', 'HomeController@exportXLS')->name('exportXLS');
 });
 
 //user

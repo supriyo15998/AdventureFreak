@@ -25,12 +25,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add New Customer</h1>
+            <h1>Update Existing Customer</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add Customer</li>
+              <li class="breadcrumb-item active">Update Customer</li>
             </ol>
           </div>
         </div>
@@ -51,8 +51,9 @@
             </div>
             @endif
             
-            <form method="POST" action="{{ route('add_customer') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('update_customer_final', $customer->id) }}" enctype="multipart/form-data">
               @csrf
+              @method('PUT')
               <div class="card-body">
                 <!-- <div class="form-group">
                   <label for="package_category">Package Category</label>
@@ -65,35 +66,35 @@
                 </div> -->
                 <div class="form-group">
                   <label for="inputName">Invoice Numbers (comma separated)</label>
-                  <input type="text" name="invoice_numbers" id="inputName" class="form-control">
+                  <input type="text" name="invoice_numbers" value="{{ $customer->invoice_numbers }}" id="inputName" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="amount-per-head">Customer Name</label>
-                  <input id="amount-per-head" name="customer_name" type="text" class="form-control">
+                  <input id="amount-per-head" name="customer_name" value="{{ $customer->customer_name }}" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="amount-per-head">Customer Phone Number</label>
-                  <input id="amount-per-head" name="phone" type="number" class="form-control">
+                  <input id="amount-per-head" name="phone" value="{{ $customer->phone }}" type="number" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="facilities">Package Name (comma separated)</label>
-                  <input type="text" name="package_names" id="facilities" class="form-control">
+                  <input type="text" name="package_names" value="{{ $customer->package_names }}" id="facilities" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="t-date-depart">Date of Birth</label>
-                  <input type="date" name="dob" id="t-date-depart" class="form-control">
+                  <input type="date" name="dob" value="{{ $customer->dob }}" id="t-date-depart" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="t-date-arrival">Date of Anniversary</label>
-                  <input type="date" name="doa" id="t-date-arrival" class="form-control">
+                  <input type="date" name="doa" value="{{ $customer->doa }}" id="t-date-arrival" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="Sex">Sex</label>
                   <select id="sex" class="form-control" name="sex">
-                    <option value="none" autofocus>Select Sex (Male/Female/Others)</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="others">Others</option>
+                    <option value="none">Select Sex (Male/Female/Others)</option>
+                    <option value="male" {{ $customer->sex == 'male' ? "selected" : "" }}>Male</option>
+                    <option value="female" {{ $customer->sex == 'female' ? "selected" : "" }}>Female</option>
+                    <option value="others" {{ $customer->sex == 'others' ? "selected" : "" }}>Others</option>
                   </select>
                 </div>
                 <!-- <div class="form-group d-flex flex-column">
@@ -101,7 +102,7 @@
                   <input type="file" id="image" name="image">
                 </div> -->
                 <div class="form-group d-flex flex-column">
-                  <input type="submit" name="create_package" class="btn btn-success" value="Add New Customer">
+                  <input type="submit" name="create_package" class="btn btn-success" value="Update Customer Details">
                 </div>
               </div>
             <form>

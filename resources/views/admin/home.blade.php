@@ -86,8 +86,8 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
-                <p>Unique Visitors</p>
+                <h3>{{ $ccount }}</h3>
+                <p>Customers</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

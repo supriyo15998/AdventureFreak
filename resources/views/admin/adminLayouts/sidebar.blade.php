@@ -82,12 +82,7 @@
                   <p>Create New</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Update Existing</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="{{ route('view_customer') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

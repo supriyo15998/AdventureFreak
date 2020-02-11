@@ -74,7 +74,15 @@
                 <div class="card-body">
 
                 <input type="hidden" value="{{ $package->id }}" name="package_id"/>
-
+                    <div class="form-group">
+                      <label for="package_category">Package Category</label>
+                      <select id="package_category" class="form-control" name="package_category">
+                        <option disabled>Select Package Category</option>
+                        <option value="adventurous-tour" {{ $package->package_category == 'adventurous-tour' ? "selected" : "" }}>Adventurous Tour</option>
+                        <option value="trekking" {{ $package->package_category == 'trekking' ? "selected" : "" }}>Trekking</option>
+                        <option value="city-tour" {{ $package->package_category == 'city-tour' ? "selected" : "" }}>City Tour</option>
+                      </select>
+                    </div>
                     <div class="form-group">
                         <label for="inputName">Package Name</label>
                         <input type="text" name="package_name" value="{{ $package->package_name }}" id="inputName" class="form-control">
@@ -103,7 +111,7 @@
                         <input type="file" id="image" name="image">
                     </div>
                     <div class="form-group d-flex flex-column">
-                        <input type="submit" name="create_package" class="btn btn-success" value="Add New Package">
+                        <input type="submit" name="create_package" class="btn btn-success" value="Update Package">
                     </div>
                 </div>
             <form>
