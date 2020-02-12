@@ -29,7 +29,7 @@
     <!-- Header Area End -->
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16a.jpg);">
+    <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url({{ asset('img/bg-img/16a.jpg') }});">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -149,15 +149,15 @@
 
     <!-- **** All JS Files ***** -->
     <!-- jQuery 2.2.4 -->
-    <script src="jsUser/jquery.min.js"></script>
+    <script src="{{ asset('jsUser/jquery.min.js') }}"></script>
     <!-- Popper -->
-    <script src="jsUser/popper.min.js"></script>
+    <script src="{{ asset('jsUser/popper.min.') }}js"></script>
     <!-- Bootstrap -->
-    <script src="jsUser/bootstrap.min.js"></script>
+    <script src="{{ asset('jsUser/bootstrap.min.js') }}"></script>
     <!-- All Plugins -->
-    <script src="jsUser/roberto.bundle.js"></script>
+    <script src="{{ asset('jsUser/roberto.bundle.js') }}"></script>
     <!-- Active -->
-    <script src="jsUser/default-assets/active.js"></script>
+    <script src="{{ asset('jsUser/default-assets/active.js') }}"></script>
 
 </body>
 

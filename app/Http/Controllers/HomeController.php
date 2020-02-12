@@ -281,7 +281,9 @@ class HomeController extends Controller
     }
     public function destroyInvoice($id)
     {
-        $invoice = Invoice::findOrFail($id)->delete();
+        $invoice = Invoice::findOrFail($id);
+        $invoice->packages()->detach();
+        $invoice->delete();
         return redirect('/admin/home')->with('message', 'Customer Data Deleted Successfully');
     }
     public function exportXLS() 
