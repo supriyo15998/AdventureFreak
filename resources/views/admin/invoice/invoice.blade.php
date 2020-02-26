@@ -38,7 +38,7 @@
 			</div>
 			
 		</div>		
-		<table>
+		<table style="width: 100%">
 			<thead style="background-color: red; color: white">
 				<tr>
 					<th>#</th>

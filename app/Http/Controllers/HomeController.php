@@ -155,7 +155,7 @@ class HomeController extends Controller
         ];
 
         $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
-        return $pdf->stream('invoice.pdf');
+        return $pdf->download($invoice->bill_to_name . '_100' . $invoice->id);
     }
     public function createInvoice(Request $request)
     {
@@ -202,12 +202,11 @@ class HomeController extends Controller
             'finalAmount' => $finalAmount,
             'text' => $text
         ];
-        //dd($data);
-
+        
 
         $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
-        return $pdf->stream('invoice.pdf');
-        //return view('admin.invoice.invoice')->withData($data);
+        return $pdf->download($invoice->bill_to_name . '_100' . $invoice->id);
+        return view('admin.invoice.invoice')->withData($data);
     }
     public function new_testimonial()
     {
