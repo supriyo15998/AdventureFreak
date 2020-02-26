@@ -53,7 +53,7 @@
                       <th>Invoice ID</th>
                       <th>Customer Name</th>
                       <th>Package Details</th>
-                      <th>Total Amount</th>
+                      <th>Action</th>
                   </tr>
               </thead>
               <tbody>

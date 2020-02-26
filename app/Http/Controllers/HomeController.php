@@ -155,7 +155,7 @@ class HomeController extends Controller
         ];
 
         $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
-        return $pdf->download($invoice->bill_to_name . '_100' . $invoice->id);
+        return $pdf->download($invoice->bill_to_name . '_100' . $invoice->id . ".pdf");
     }
     public function createInvoice(Request $request)
     {
@@ -205,7 +205,7 @@ class HomeController extends Controller
         
 
         $pdf = \PDF::loadView('admin.invoice.invoice', array('data' => $data));
-        return $pdf->download($invoice->bill_to_name . '_100' . $invoice->id);
+        return $pdf->download($invoice->bill_to_name . '_100' . $invoice->id . ".pdf");
         return view('admin.invoice.invoice')->withData($data);
     }
     public function new_testimonial()
@@ -283,7 +283,7 @@ class HomeController extends Controller
         $invoice = Invoice::findOrFail($id);
         $invoice->packages()->detach();
         $invoice->delete();
-        return redirect('/admin/home')->with('message', 'Customer Data Deleted Successfully');
+        return redirect('/admin/home')->with('message', 'Invoice Data Deleted Successfully');
     }
     public function exportXLS() 
     {
