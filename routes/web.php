@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->group(function () {
-    Auth::routes();
+Route::domain('admin.adventure.tesseractgnit.com')->group(function () {
+    Auth::routes(['register' => false]);
     Route::get('/add-new-package', 'HomeController@new_package')->name('new-package');
     Route::post('/add-new-package', 'HomeController@create_new_package')->name('create_new_package');
     Route::get('/view-packages', 'HomeController@view_packages')->name('view_packages');
