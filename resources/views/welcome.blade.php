@@ -134,42 +134,44 @@
             </div>
         </div>
     </div>
-    <section class="roberto-testimonials-area section-padding-100-0">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="testimonial-thumbnail owl-carousel mb-100">
-                        @foreach($testimonials as $testimonial)
-                            <img src="{{ asset('img/testimonials/' . $testimonial->image) }}" alt="">
-                        @endforeach
+    @if(count($testimonials) > 0)
+        <section class="roberto-testimonials-area section-padding-100-0">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                        <div class="testimonial-thumbnail owl-carousel mb-100">
+                            @foreach($testimonials as $testimonial)
+                                <img src="{{ asset('img/testimonials/' . $testimonial->image) }}" alt="">
+                            @endforeach
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-12 col-md-6">
-                    <div class="section-heading">
-                        <h6>Testimonials</h6>
-                        <h2>Our Guests Love Us</h2>
-                    </div>
-                    <div class="testimonial-slides owl-carousel mb-100">
-                        @foreach($testimonials as $testimonial)
-                            <div class="single-testimonial-slide">
-                                <h5>“{{ $testimonial->description }}.”</h5>
-                                <div class="rating-title">
-                                    <div class="rating">
-                                        @for($i=1;$i<=$testimonial->star;$i++)
-                                            <i class="icon_star"></i>
-                                        @endfor
+                    <div class="col-12 col-md-6">
+                        <div class="section-heading">
+                            <h6>Testimonials</h6>
+                            <h2>Our Guests Love Us</h2>
+                        </div>
+                        <div class="testimonial-slides owl-carousel mb-100">
+                            @foreach($testimonials as $testimonial)
+                                <div class="single-testimonial-slide">
+                                    <h5>“{{ $testimonial->description }}.”</h5>
+                                    <div class="rating-title">
+                                        <div class="rating">
+                                            @for($i=1;$i<=$testimonial->star;$i++)
+                                                <i class="icon_star"></i>
+                                            @endfor
+                                        </div>
+                                        <h6>{{ $testimonial->customer_name }}</h6>
                                     </div>
-                                    <h6>{{ $testimonial->customer_name }}</h6>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+                        {{ $testimonials->links() }}
                     </div>
-                    {{ $testimonials->links() }}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     @include('layouts.contact')
     @include('layouts.footer')
     <script src="{{ asset('jsUser/jquery.min.js')}}"></script>

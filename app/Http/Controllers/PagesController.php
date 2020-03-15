@@ -13,6 +13,7 @@ class PagesController extends Controller
         //$testimonials = Testimonial::all();
         //dd($testimonials);
         $testimonials = DB::table('testimonials')->paginate(1);
+        //dd($testimonials);
         return view('welcome')->withTitle($title)->withTestimonials($testimonials);
     }
     public function about() {
