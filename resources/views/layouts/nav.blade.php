@@ -38,7 +38,7 @@
                 <nav class="classy-navbar justify-content-between" id="robertoNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="{{ route('index') }}"><img src="./img/core-img/newlogo.png" alt=""></a>
+                    <a class="nav-brand" href="{{ route('index') }}"><img src="{{ asset('img/core-img/newlogotry.png') }}" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
